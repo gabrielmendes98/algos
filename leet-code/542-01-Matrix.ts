@@ -3,8 +3,8 @@ function updateMatrix(mat: number[][]): number[][] {
   const m = mat.length;
   const n = mat[0].length;
 
-  for (let i = 0; i < mat.length; i++) {
-    for (let j = 0; j < mat[i].length; j++) {
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
       if (mat[i][j] === 0) {
         queue.push([i, j]);
       } else {
