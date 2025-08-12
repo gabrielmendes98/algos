@@ -6,18 +6,22 @@
 var strStr = function (haystack, needle) {
   let startingPoint = -1;
   let cursor = 0;
-  for (let start = 0; start <= haystack.length - needle.length && cursor !== needle.length; start++) {
+  for (let start = 0; start <= haystack.length - needle.length; start++) {
     cursor = 0;
     startingPoint = -1;
     if (haystack[start] === needle[cursor]) {
       startingPoint = start;
-      while (haystack[start + cursor] === needle[cursor] && cursor !== needle.length) {
+      while (haystack[start + cursor] === needle[cursor]) {
         cursor++;
+
+        if (cursor === needle.length) {
+          return startingPoint;
+        }
       }
     }
   }
 
-  return cursor === needle.length ? startingPoint : -1;
+  return -1;
 };
 
 // OR
